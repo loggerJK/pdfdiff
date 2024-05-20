@@ -422,7 +422,15 @@ def view_diff(fnleft,fnright):
         print(estr)
         sys.exit(1)
 
-    cmd = "%s \"%s\" \"%s\"" % (prg,fleft.name,fright.name)
+    print("Using diff viewer: %s" % prg)
+    print("Left file: %s" % fleft.name)
+    print("Right file: %s" % fright.name)
+    
+    # Copy files to current working directory
+    os.system("cp %s %s" % (fleft.name, os.path.basename(fleft.name)))
+    os.system("cp %s %s" % (fright.name, os.path.basename(fright.name)))
+    
+    cmd = "%s \"%s\" \"%s\"" % (prg,os.path.basename(fleft.name),os.path.basename(fright.name))
     out = subprocess.getoutput(cmd)
     # Also print the result (e.g. for programs like diff that send
     # output to stdout)

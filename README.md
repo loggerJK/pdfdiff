@@ -75,6 +75,14 @@ Use cases
   version B, and wonder what the changes are.
 
 
+What is modified in my repo
+---
+- Move output text files into current working directory, which avoids `no file found error` for certain diff programs.
+
+My Usage
+---------
+- To use vscode diff : `python3 ./pdfdiff.py -d 'code --diff' ./eccv.pdf ./arxiv.pdf`
+
 License
 -------
 
